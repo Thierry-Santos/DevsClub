@@ -1,0 +1,149 @@
+import React from 'react';
+import {StatusBar, Text, TextInput} from 'react-native';
+import {Provider} from 'react-redux';
+import {
+  createAppContainer,
+  createStackNavigator,
+  createSwitchNavigator,
+  createBottomTabNavigator,
+} from 'react-navigation';
+import {IconsMCI} from './src/components';
+import {FontScreenSize, ScreenSize, isIOS, isSigned} from './src/helper/Helper';
+import {color1, color2, color3, color4} from './src/assets';
+
+import {
+  HomePage,
+  JobsPage,
+  SigninPage,
+  ProfilePage,
+  BadgesPage,
+  LoginPage,
+  NotificationPage,
+} from './src/pages';
+
+import store from './src/store';
+
+const MainNavigation = createBottomTabNavigator(
+  {
+    Home: HomePage,
+    Jobs: JobsPage,
+  },
+  {
+    defaultNavigationOptions: ({navigation}) => ({
+      tabBarIcon: ({tintColor}) => {
+        const {routeName} = navigation.state;
+        let iconName;
+        if (routeName === 'Home') {
+          iconName = 'home';
+        }
+        if (routeName === 'Jobs') {
+          iconName = 'folder-account';
+        }
+        // You can return any component that you like here!
+        return (
+          <IconsMCI
+            name={iconName}
+            size={isIOS() ? FontScreenSize(6) : FontScreenSize(12)}
+            color={tintColor}
+          />
+        );
+      },
+    }),
+    tabBarOptions: {
+      activeTintColor: color3,
+      inactiveTintColor: color1,
+      activeBackgroundColor: color2,
+      keyboardHidesTabBar: true,
+      labelStyle: {
+        fontSize: isIOS() ? FontScreenSize(6) : FontScreenSize(8),
+        fontWeight: 'bold',
+      },
+      style: {
+        paddingTop: 6,
+        height: ScreenSize(2, 8),
+      },
+    },
+    resetOnBlur: false,
+  },
+);
+
+const LoginNavigator = createStackNavigator(
+  {
+    Login: LoginPage,
+    Signin: SigninPage,
+  },
+  {
+    initialRouteName: 'Login',
+    headerMode: 'none',
+  },
+);
+
+const NotificationNavigator = createStackNavigator(
+  {
+    Notification: NotificationPage,
+  },
+  {
+    initialRouteName: 'Notification',
+    headerMode: 'none',
+  },
+);
+
+const BadgesNavigator = createStackNavigator(
+  {
+    Badges: BadgesPage,
+  },
+  {
+    initialRouteName: 'Badges',
+    headerMode: 'none',
+  },
+);
+
+const ProfileNavigator = createStackNavigator(
+  {
+    Profile: ProfilePage,
+  },
+  {
+    initialRouteName: 'Profile',
+    headerMode: 'none',
+  },
+);
+
+const DefaultNavigation = createSwitchNavigator(
+  {
+    MainApp: MainNavigation,
+    LoginApp: LoginNavigator,
+    Profile: ProfileNavigator,
+    Notification: NotificationNavigator,
+    Badges: BadgesNavigator,
+  },
+  {
+    initialRouteName: 'MainApp',
+    headerMode: 'none',
+  },
+);
+
+// And the app container
+let Navigation = createAppContainer(DefaultNavigation);
+
+// Render the app container component with the provider around it
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // Counter for accessibility device changes
+    Text.defaultProps = {...(Text.defaultProps || {}), allowFontScaling: false};
+    TextInput.defaultProps = {
+      ...(TextInput.defaultProps || {}),
+      allowFontScaling: false,
+    };
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <StatusBar backgroundColor={'#90fffa'} />
+        <Navigation />
+      </Provider>
+    );
+  }
+}
