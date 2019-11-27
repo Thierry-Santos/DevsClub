@@ -7,7 +7,7 @@ const inputPadW = ScreenSize(1, 3);
 export const color1 = '#000000';
 export const color2 = '#FFFFFF';
 export const color3 = '#25A5BF';
-export const color4 = '#3C3174';
+export const color4 = '#6D79D1';
 
 export const styles = StyleSheet.create({
   app: {
@@ -36,10 +36,11 @@ export const styles = StyleSheet.create({
 
   // Views
   basicButton: {
-    backgroundColor: '#000000',
+    backgroundColor: color3,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    minWidth: '100%',
   },
   basicButtonText: {
     fontSize: FontScreenSize(10),
@@ -48,14 +49,15 @@ export const styles = StyleSheet.create({
 
   outsideButton: {
     borderWidth: 2,
-    borderColor: '#000000',
+    borderColor: color3,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    minWidth: '100%',
   },
   outsideButtonText: {
     fontSize: FontScreenSize(10),
-    color: '#000000',
+    color: color3,
   },
 
   iconButton: {
