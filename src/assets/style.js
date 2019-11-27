@@ -174,4 +174,8 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     elevation: 8,
   },
+  avatarView: {
+    borderRadius: 75,
+    marginBottom: 20,
+  },
 });
