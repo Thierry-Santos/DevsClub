@@ -74,11 +74,12 @@ class NotificationPage extends React.Component {
 const css = StyleSheet.create({
   app: {
     flex: 1,
-    height: ScreenSize(2, 100),
+    height: isIos ? ScreenSize(2, 100) : ScreenSize(2, 135),
     backgroundColor: color2,
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginTop: isIos ? 33 : 0,
+    paddingBottom: 90,
   },
   card: {
     width: '90%',
