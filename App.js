@@ -38,7 +38,7 @@ const MainNavigation = createBottomTabNavigator(
           iconName = 'home';
         }
         if (routeName === 'Premios') {
-          iconName = 'folder-account';
+          iconName = 'trophy';
         }
         if (routeName === 'Notificação') {
           iconName = 'bell';
