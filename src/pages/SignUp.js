@@ -5,6 +5,7 @@ import {mapDispatchToProps, mapStateToProps} from '../reducers/Functions';
 import {connect} from 'react-redux';
 import {styles} from '../assets';
 import logo from '../images/logo-devsclub.png';
+
 class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
@@ -48,7 +49,7 @@ class SignUpPage extends React.Component {
           <TouchableOpacity
             style={[styles.basicButton, styles.simpleShadow]}
             onPress={() => {
-              this.props.navigation.navigate('Home');
+              this.props.navigation.navigate('Login');
             }}>
             <Text style={[styles.basicButtonText, styles.pad5, styles.padH5]}>
               Enviar
