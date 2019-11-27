@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Button, Image, StyleSheet, Platform} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Platform,
+} from 'react-native';
 
 import {mapDispatchToProps, mapStateToProps} from '../reducers/Functions';
 import {connect} from 'react-redux';
@@ -22,12 +29,14 @@ class BadgesPage extends React.Component {
     const image = this.props.navigation.getParam('image', '');
     const points = this.props.navigation.getParam('points', '');
     const description = this.props.navigation.getParam('description', '');
+    const isDone = this.props.navigation.getParam('isDone', '');
 
     this.setState({
       title,
       points,
       description,
       image,
+      isDone,
     });
   }
 
@@ -56,34 +65,35 @@ class BadgesPage extends React.Component {
               style={{
                 fontSize: 30,
                 fontWeight: 'bold',
-                color: color3,
+                color: this.state.isDone ? color3 : 'gray',
               }}>
               {this.state.title}
             </Text>
             <Text
               style={{
                 fontSize: 20,
-                color: color4,
+                color: this.state.isDone ? color3 : 'gray',
               }}>
               Pontos: {this.state.points}
             </Text>
           </View>
           <View style={{padding: '3%'}}>
-            <Image
-              style={css.userIcon}
-              source={{
-                uri: this.state.image,
-              }}
-            />
+            <Image style={css.userIcon} source={this.state.image} />
           </View>
         </View>
-        <Text style={css.conquers}>DESCRIÇÃO</Text>
-        <Button
-          title={'Sair'}
-          onPress={() => {
-            this.props.navigation.navigate('Home');
-          }}
-        />
+        <Text style={css.description}>DESCRIÇÃO</Text>
+        <Text style={css.descriptionText}>{this.state.description}</Text>
+        <View style={{margin: 10}}>
+          <TouchableOpacity
+            style={[styles.basicButton, styles.simpleShadow]}
+            onPress={() => {
+              this.props.navigation.navigate('Home');
+            }}>
+            <Text style={[styles.basicButtonText, styles.pad5, styles.padH5]}>
+              Voltar
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -95,15 +105,14 @@ const css = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  conquers: {
+  description: {
     fontSize: 18,
     fontWeight: 'bold',
     color: color1,
     paddingBottom: 20,
   },
-  conquers2: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  descriptionText: {
+    fontSize: 17,
     color: color1,
     padding: 20,
   },

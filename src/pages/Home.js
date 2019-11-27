@@ -24,65 +24,132 @@ class HomePage extends React.Component {
         <TouchableOpacity
           onPress={() =>
             this.props.navigation.navigate('Badges', {
-              title: 'BootCamp Rocketseat',
+              title: 'Estudo',
               points: '45',
               description: 'Teste teste teste',
-              image: 'https://img.icons8.com/officel/2x/person-male.png',
+              image: require('../images/estudo-blue.png'),
+              isDone: true,
             })
           }>
           <Image
             style={css.badgerImage}
-            source={{
-              uri: 'https://img.icons8.com/officel/2x/person-male.png',
-            }}
+            source={require('../images/estudo-blue.png')}
+          />
+          <Text style={{textAlign: 'center'}}>Estudo</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate('Badges', {
+              title: 'Pesquisa',
+              points: '30',
+              description: 'Teste teste teste',
+              image: require('../images/research-purple.png'),
+              isDone: true,
+            })
+          }>
+          <Image
+            style={css.badgerImage}
+            source={require('../images/research-purple.png')}
+          />
+          <Text style={{textAlign: 'center'}}>Pesquisa</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate('Badges', {
+              title: 'Puzzle',
+              points: '50',
+              description: 'Teste teste teste',
+              image: require('../images/puzzle-blue.png'),
+              isDone: true,
+            })
+          }>
+          <Image
+            style={css.badgerImage}
+            source={require('../images/puzzle-blue.png')}
+          />
+          <Text style={{textAlign: 'center'}}>Puzzle</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate('Badges', {
+              title: 'Reciclagem',
+              points: '55',
+              description: 'Teste teste teste',
+              image: require('../images/recicle-green.png'),
+              isDone: true,
+            })
+          }>
+          <Image
+            style={css.badgerImage}
+            source={require('../images/recicle-green.png')}
+          />
+          <Text style={{textAlign: 'center'}}>Reciclagem</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  renderBadgerUndone() {
+    return (
+      <View style={css.badgerLine}>
+        <TouchableOpacity
+          onPress={() =>
+            this.props.navigation.navigate('Badges', {
+              title: 'Assistir um filme',
+              points: '25',
+              description: 'Teste teste teste',
+              image: require('../images/badge-undone.png'),
+              isDone: false,
+            })
+          }>
+          <Image
+            style={css.badgerImage}
+            source={require('../images/badge-undone.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
             this.props.navigation.navigate('Badges', {
-              title: 'BootCamp Rocketseat',
-              points: '45',
+              title: 'Evento de teconologia',
+              points: '80',
               description: 'Teste teste teste',
-              image: 'https://img.icons8.com/officel/2x/person-male.png',
+              image: require('../images/badge-undone.png'),
+              isDone: false,
             })
           }>
           <Image
             style={css.badgerImage}
-            source={{
-              uri: 'https://img.icons8.com/officel/2x/person-male.png',
-            }}
+            source={require('../images/badge-undone.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
             this.props.navigation.navigate('Badges', {
-              title: 'BootCamp Rocketseat',
-              points: '45',
+              title: 'Hackathon',
+              points: '150',
               description: 'Teste teste teste',
-              image: 'https://img.icons8.com/officel/2x/person-male.png',
+              image: require('../images/badge-undone.png'),
+              isDone: false,
             })
           }>
           <Image
             style={css.badgerImage}
-            source={{
-              uri: 'https://img.icons8.com/officel/2x/person-male.png',
-            }}
+            source={require('../images/badge-undone.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
             this.props.navigation.navigate('Badges', {
-              title: 'BootCamp Rocketseat',
-              points: '45',
+              title: 'Palestras',
+              points: '35',
               description: 'Teste teste teste',
-              image: 'https://img.icons8.com/officel/2x/person-male.png',
+              image: require('../images/badge-undone.png'),
+              isDone: false,
             })
           }>
           <Image
             style={css.badgerImage}
-            source={{
-              uri: 'https://img.icons8.com/officel/2x/person-male.png',
-            }}
+            source={require('../images/badge-undone.png')}
           />
         </TouchableOpacity>
       </View>
@@ -138,13 +205,12 @@ class HomePage extends React.Component {
           </View>
           <Text style={css.conquers}>CONQUISTAS</Text>
           {this.renderBadger()}
-          {this.renderBadger()}
           <Text style={css.conquers2}>PRÓXIMOS DESAFIOS</Text>
-          {this.renderBadger()}
-          {this.renderBadger()}
-          {this.renderBadger()}
-          {this.renderBadger()}
-          {this.renderBadger()}
+          {this.renderBadgerUndone()}
+          {this.renderBadgerUndone()}
+          {this.renderBadgerUndone()}
+          {this.renderBadgerUndone()}
+          {this.renderBadgerUndone()}
         </View>
       </ScrollView>
     );
