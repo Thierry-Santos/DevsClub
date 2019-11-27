@@ -55,6 +55,13 @@
   react-native run-ios
 ```
 
+# Utilização
+
+## Login de teste
+
+Usúario: teste@teste.com
+Senha: testando
+
 ## Licença
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
