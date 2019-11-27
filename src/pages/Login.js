@@ -23,7 +23,7 @@ class LoginPage extends React.Component {
   };
   handleSubmit = async () => {
     if (
-      this.state.email !== 'teste@teste.com' &&
+      this.state.email !== 'teste@teste.com' ||
       this.state.senha !== 'testando'
     ) {
       Alert.alert('E-mail ou Senha incorretos! Por favor verifique seus dados');
@@ -57,6 +57,8 @@ class LoginPage extends React.Component {
               style={[styles.inputBasicText, styles.pad5, styles.padH5]}
               placeholder="Informe a sua Senha"
               secureTextEntry
+              value={this.state.senha}
+              onChangeText={senha => this.setState({senha})}
             />
           </View>
         </View>
