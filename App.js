@@ -23,6 +23,8 @@ import {
 
 import store from './src/store';
 
+const isIos = Platform.OS === 'ios';
+
 const MainNavigation = createBottomTabNavigator(
   {
     Home: HomePage,
@@ -43,7 +45,7 @@ const MainNavigation = createBottomTabNavigator(
         return (
           <IconsMCI
             name={iconName}
-            size={isIOS() ? FontScreenSize(6) : FontScreenSize(12)}
+            size={isIOS ? FontScreenSize(12) : FontScreenSize(12)}
             color={tintColor}
           />
         );
@@ -55,7 +57,7 @@ const MainNavigation = createBottomTabNavigator(
       activeBackgroundColor: color2,
       keyboardHidesTabBar: true,
       labelStyle: {
-        fontSize: isIOS() ? FontScreenSize(6) : FontScreenSize(8),
+        fontSize: isIOS ? FontScreenSize(8) : FontScreenSize(8),
         fontWeight: 'bold',
       },
       style: {
@@ -78,43 +80,13 @@ const LoginNavigator = createStackNavigator(
   },
 );
 
-const NotificationNavigator = createStackNavigator(
-  {
-    Notification: NotificationPage,
-  },
-  {
-    initialRouteName: 'Notification',
-    headerMode: 'none',
-  },
-);
-
-const BadgesNavigator = createStackNavigator(
-  {
-    Badges: BadgesPage,
-  },
-  {
-    initialRouteName: 'Badges',
-    headerMode: 'none',
-  },
-);
-
-const ProfileNavigator = createStackNavigator(
-  {
-    Profile: ProfilePage,
-  },
-  {
-    initialRouteName: 'Profile',
-    headerMode: 'none',
-  },
-);
-
 const DefaultNavigation = createSwitchNavigator(
   {
     MainApp: MainNavigation,
     LoginApp: LoginNavigator,
-    Profile: ProfileNavigator,
-    Notification: NotificationNavigator,
-    Badges: BadgesNavigator,
+    Notification: NotificationPage,
+    Badges: BadgesPage,
+    Profile: ProfilePage,
   },
   {
     initialRouteName: 'MainApp',
@@ -141,7 +113,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <StatusBar backgroundColor={'#90fffa'} />
+        <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
         <Navigation />
       </Provider>
     );

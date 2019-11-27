@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import {PaddingSize, ScreenSize, FontScreenSize} from '../helper/Helper';
 
 const inputPadH = ScreenSize(2, 1);
@@ -7,13 +7,19 @@ const inputPadW = ScreenSize(1, 3);
 export const color1 = '#000000';
 export const color2 = '#FFFFFF';
 export const color3 = '#25A5BF';
-export const color4 = '#3C3174';
+export const color4 = '#6D79D1';
 
 export const styles = StyleSheet.create({
   app: {
     flex: 1,
     backgroundColor: color2,
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  app2: {
+    flex: 1,
+    backgroundColor: color2,
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   container: {
