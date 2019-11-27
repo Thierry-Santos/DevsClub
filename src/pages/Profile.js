@@ -15,9 +15,6 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <View style={styles.app}>
-        <View style={{position: 'absolute', top: 44, left: 34, zIndex: 9999}}>
-          <IconsMCI name={'bell'} size={FontScreenSize(14)} color={'#000000'} />
-        </View>
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('Login')}
           style={{position: 'absolute', top: 44, right: 34, zIndex: 9999}}>

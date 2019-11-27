@@ -222,6 +222,7 @@ class HomePage extends React.Component {
 
 const css = StyleSheet.create({
   app: {
+    flex: 1,
     backgroundColor: color2,
     justifyContent: 'flex-start',
     alignItems: 'center',

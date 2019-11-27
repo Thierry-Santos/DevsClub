@@ -26,7 +26,8 @@ import store from './src/store';
 const MainNavigation = createBottomTabNavigator(
   {
     Home: HomePage,
-    Jobs: JobsPage,
+    Premios: JobsPage,
+    Notificação: NotificationPage,
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -36,8 +37,11 @@ const MainNavigation = createBottomTabNavigator(
         if (routeName === 'Home') {
           iconName = 'home';
         }
-        if (routeName === 'Jobs') {
+        if (routeName === 'Premios') {
           iconName = 'folder-account';
+        }
+        if (routeName === 'Notificação') {
+          iconName = 'bell';
         }
         // You can return any component that you like here!
         return (
@@ -82,7 +86,6 @@ const DefaultNavigation = createSwitchNavigator(
   {
     MainApp: MainNavigation,
     LoginApp: LoginNavigator,
-    Notification: NotificationPage,
     Badges: BadgesPage,
     Profile: ProfilePage,
   },
@@ -111,7 +114,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <StatusBar backgroundColor={'#fff'} />
+        <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
         <Navigation />
       </Provider>
     );
