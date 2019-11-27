@@ -1,5 +1,9 @@
 # Dev's Club Mobile
 
+## <a href="https://github.com/nennogabriel/rsxp-devsclub-business" target="_blank">Business</a>
+
+## <a href="https://github.com/ricardotecnicob/devsclub" target="_blank">Aplicação FrontEnd</a>
+
 # Tecnologias Utilizadas :
 
 - <a href="https://facebook.github.io/react-native/docs/getting-started" target="_blank">React Native 0.61.5</a>
