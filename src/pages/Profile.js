@@ -4,6 +4,8 @@ import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import {mapDispatchToProps, mapStateToProps} from '../reducers/Functions';
 import {connect} from 'react-redux';
 import {styles} from '../assets';
+import {IconsMCI} from '../components';
+import {FontScreenSize, ScreenSize, isIOS, isSigned} from '../helper/Helper';
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -13,6 +15,18 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <View style={styles.app}>
+        <View style={{position: 'absolute', top: 44, left: 34, zIndex: 9999}}>
+          <IconsMCI name={'bell'} size={FontScreenSize(14)} color={'#000000'} />
+        </View>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('Login')}
+          style={{position: 'absolute', top: 44, right: 34, zIndex: 9999}}>
+          <IconsMCI
+            name={'logout-variant'}
+            size={FontScreenSize(14)}
+            color={'#000000'}
+          />
+        </TouchableOpacity>
         <View style={[styles.simpleShadow, styles.avatarView]}>
           <Image
             style={{width: 150, height: 150, borderRadius: 75}}
@@ -76,8 +90,5 @@ class ProfilePage extends React.Component {
   }
 }
 
-const profile = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(ProfilePage);
+const profile = connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
 export {profile as ProfilePage};

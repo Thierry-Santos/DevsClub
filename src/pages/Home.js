@@ -162,7 +162,10 @@ class HomePage extends React.Component {
     return (
       <ScrollView>
         <View style={css.app}>
-          <View
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate('Profile');
+            }}
             style={{
               flexDirection: 'row',
               width: '85%',
@@ -176,7 +179,7 @@ class HomePage extends React.Component {
               <Image
                 style={css.userIcon}
                 source={{
-                  uri: 'https://img.icons8.com/officel/2x/person-male.png',
+                  uri: 'https://api.adorable.io/avatars/285/abott@adorable.png',
                 }}
               />
             </View>
@@ -202,7 +205,7 @@ class HomePage extends React.Component {
                 Dev Recruta
               </Text>
             </View>
-          </View>
+          </TouchableOpacity>
           <Text style={css.conquers}>CONQUISTAS</Text>
           {this.renderBadger()}
           <Text style={css.conquers2}>PRÓXIMOS DESAFIOS</Text>
