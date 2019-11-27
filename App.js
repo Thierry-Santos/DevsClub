@@ -14,7 +14,7 @@ import {color1, color2, color3, color4} from './src/assets';
 import {
   HomePage,
   JobsPage,
-  SigninPage,
+  SignUpPage,
   ProfilePage,
   BadgesPage,
   LoginPage,
@@ -22,8 +22,6 @@ import {
 } from './src/pages';
 
 import store from './src/store';
-
-const isIos = Platform.OS === 'ios';
 
 const MainNavigation = createBottomTabNavigator(
   {
@@ -72,7 +70,7 @@ const MainNavigation = createBottomTabNavigator(
 const LoginNavigator = createStackNavigator(
   {
     Login: LoginPage,
-    Signin: SigninPage,
+    SignUp: SignUpPage,
   },
   {
     initialRouteName: 'Login',
@@ -113,7 +111,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
+        <StatusBar backgroundColor={'#fff'} />
         <Navigation />
       </Provider>
     );

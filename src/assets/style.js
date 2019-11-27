@@ -42,10 +42,11 @@ export const styles = StyleSheet.create({
 
   // Views
   basicButton: {
-    backgroundColor: '#000000',
+    backgroundColor: color3,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    minWidth: '100%',
   },
   basicButtonText: {
     fontSize: FontScreenSize(10),
@@ -54,14 +55,15 @@ export const styles = StyleSheet.create({
 
   outsideButton: {
     borderWidth: 2,
-    borderColor: '#000000',
+    borderColor: color3,
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    minWidth: '100%',
   },
   outsideButtonText: {
     fontSize: FontScreenSize(10),
-    color: '#000000',
+    color: color3,
   },
 
   iconButton: {
